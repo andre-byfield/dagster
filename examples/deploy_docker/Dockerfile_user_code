@@ -12,10 +12,11 @@ RUN pip install \
 
 WORKDIR /opt/dagster/app
 
-COPY definitions.py /opt/dagster/app
+COPY definitions.py /opt/dagster/app/
+RUN mv /opt/dagster/app/definitions.py /opt/dagster/app/definitions_test.py
 
 # Run dagster gRPC server on port 4000
 
 EXPOSE 4000
 
-CMD ["dagster", "api", "grpc", "-h", "0.0.0.0", "-p", "4000", "-f", "definitions.py"]
+CMD ["dagster", "api", "grpc", "-h", "0.0.0.0", "-p", "4000", "-f", "definitions_test.py"]

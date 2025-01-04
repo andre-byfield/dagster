@@ -3,7 +3,7 @@ import dagster as dg
 
 @dg.asset(
     op_tags={"operation": "example"},
-    partitions_def=dg.DailyPartitionsDefinition("2024-01-01"),
+    partitions_def=dg.DailyPartitionsDefinition("2025-01-01"),
 )
 def example_asset(context: dg.AssetExecutionContext):
     context.log.info(context.partition_key)
